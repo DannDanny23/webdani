@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Daniel Alanis</title>
+    <link rel="icon" href="favicon.gif" type="image/gif">
+    
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Daniel Alanis</div>
+            <ul class="menu-principal">
+                <li><a href="index.html">Acerca de mí</a></li>
+                <li class="dropdown">
+                    <a href="portafolio.html" class="dropbtn">Portafolio <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="portafolio.html#galeria">Galería</a>
+                        <a href="portafolio.html#proyectos">Proyectos</a>
+                    </div>
+                </li>
+                <li><a href="contacto.html" class="activo">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <h1><i class="fas fa-envelope"></i> Datos de contacto</h1>
+
+        <div class="contacto-grid">
+            <div class="columna-contacto">
+                <h2>Contáctame!!!!</h2>
+                <div class="google-form-wrapper">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpSvD9l_NqzgwEhZsqQivoZxT4036y7q6HYtvxVBh3amE07w/viewform?embedded=true" 
+                            width="100%" height="1006" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+                </div>
+            </div>
+
+            <div class="columna-contacto">
+                <h2>Ubicación</h2>
+                <p>donde nace la magia:</p>
+                <iframe 
+                    width="100%" 
+                    height="400" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    src="https://maps.google.com/maps?q=UAM+Azcapotzalco&t=&z=15&ie=UTF8&iwloc=&output=embed">
+                </iframe>
+            </div>
+        </div>
+
+        <section class="redes-sociales">
+            <h2>Sígueme en Instagram!!!</h2>
+            <a href="https://www.instagram.com/sew_madruga?igsh=dmI0cDJsMm9ydmtj&utm_source=qr" target="_blank" class="link-imagen">
+                <img src="insta_normal.gif" alt="Instagram Normal" class="img-normal">
+                <img src="insta_hover.gif" alt="Instagram Animado" class="img-hover">
+            </a>
+        </section>
+
+        <section class="menu-ilustrado-container">
+            <h2>botones bonitos</h2>
+            <div class="menu-visual">
+                <a href="index.html" class="btn-ilustrado">
+                    <img src="acerca_normal.gif" alt="Ir a Acerca de mí" class="img-normal">
+                    <img src="acerca_hover.gif" alt="Acerca de mí Animado" class="img-hover">
+                </a>
+                <a href="portafolio.html" class="btn-ilustrado">
+                    <img src="portafolio_normal.gif" alt="Ir a Portafolio" class="img-normal">
+                    <img src="portafolio_hover.gif" alt="Portafolio Animado" class="img-hover">
+                </a>
+            </div>
+        </section>
+
+        <section class="audio-section" style="margin-top: 40px; border-top: 1px solid #ddd; padding-top: 20px;">
+            <p>🎵 un tema que yo hice...:</p>
+            <audio controls loop autoplay class="reproductor-audio">
+                <source src="bajoambiente.wav" type="audio/wav">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p><small><em>Si el navegador bloquea el sonido automático, pulsa play</em></small></p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2025 Daniel Alanis</p>
+    </footer>
+
+</body>
+</html>

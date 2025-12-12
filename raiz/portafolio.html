@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Daniel Alanis</title>
+    <link rel="icon" href="favicon.gif" type="image/gif">
+    
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Daniel Alanis</div>
+            <ul class="menu-principal">
+                <li><a href="index.html">Acerca de mí</a></li>
+                <li class="dropdown">
+                    <a href="portafolio.html" class="dropbtn activo">Portafolio <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="portafolio.html#galeria">Galería</a>
+                        <a href="portafolio.html#proyectos">Proyectos</a>
+                    </div>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <h1><i class="fas fa-camera-retro"></i> Mi Trabajo</h1>
+        <p>Desliza para ver una selección de mis mejores carteles e ilustraciones. <strong>Haz clic en una imagen para verla en pantalla completa.</strong></p>
+
+        <section id="galeria" class="carrusel-marco">
+            <div class="carrusel-track">
+                
+                <div class="slide">
+                    <img src="cartel.jpg" alt="Diseño de Cartel Principal" onclick="abrirLightbox(this)">
+                    <div class="slide-info">Cartel ExpoCYAD</div>
+                </div>
+
+                <div class="slide">
+                    <img src="ilustracion.png" alt="Ilustración Digital" onclick="abrirLightbox(this)">
+                    <div class="slide-info">Ilustración Digital</div>
+                </div>
+
+                <div class="slide">
+                    <img src="cartel2.jpg" alt="Variación de Cartel" onclick="abrirLightbox(this)">
+                    <div class="slide-info">Diseño de Cartel</div>
+                </div>
+
+                <div class="slide">
+                    <img src="ilustracion2.png" alt="Ilustración Creativa" onclick="abrirLightbox(this)">
+                    <div class="slide-info">Concepto Creativo</div>
+                </div>
+
+            </div>
+
+            <button class="carrusel-btn btn-anterior" onclick="moverSlide(-1)">❮</button>
+            <button class="carrusel-btn btn-siguiente" onclick="moverSlide(1)">❯</button>
+        </section>
+
+        <section id="proyectos" style="margin-top: 50px;">
+            <h2>Detalles</h2>
+            <p>Estos proyectos reflejan mi pasión por el diseño gráfico y la comunicación visual.</p>
+        </section>
+
+        <section class="menu-ilustrado-container">
+            <h2>Navegación</h2>
+            <div class="menu-visual">
+                <a href="index.html" class="btn-ilustrado">
+                    <img src="acerca_normal.gif" alt="Ir a Acerca de mí" class="img-normal">
+                    <img src="acerca_hover.gif" alt="Acerca de mí Animado" class="img-hover">
+                </a>
+                <a href="contacto.html" class="btn-ilustrado">
+                    <img src="contacto_normal.gif" alt="Ir a Contacto" class="img-normal">
+                    <img src="contacto_hover.gif" alt="Contacto Animado" class="img-hover">
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2025 Daniel Alanis - Diseño Gráfico</p>
+    </footer>
+
+    <div id="miLightbox" class="lightbox" onclick="cerrarLightbox()">
+        <span class="cerrar">×</span>
+        <img class="lightbox-contenido" id="imgExpandida">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+       
+        let indiceActual = 0;
+        let intervaloAutoplay; 
+
+        function moverSlide(direccion) {
+            const track = document.querySelector('.carrusel-track');
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+
+            indiceActual += direccion;
+
+            if (indiceActual >= totalSlides) { indiceActual = 0; }
+            if (indiceActual < 0) { indiceActual = totalSlides - 1; }
+
+            const desplazamiento = -(indiceActual * 100);
+            track.style.transform = `translateX(${desplazamiento}%)`;
+            
+            
+            reiniciarAutoplay();
+        }
+
+        
+        function iniciarAutoplay() {
+            intervaloAutoplay = setInterval(() => {
+                moverSlide(1); 
+            }, 4000); 
+        }
+
+        function reiniciarAutoplay() {
+            clearInterval(intervaloAutoplay);
+            iniciarAutoplay();
+        }
+
+        
+        iniciarAutoplay();
+
+
+        
+        function abrirLightbox(imgs) {
+            var expandImg = document.getElementById("imgExpandida");
+            var captionText = document.getElementById("caption");
+            var modal = document.getElementById("miLightbox");
+            
+            
+            modal.style.display = "flex"; 
+            modal.style.alignItems = "center";
+            modal.style.justifyContent = "center";
+            
+            expandImg.src = imgs.src;
+            captionText.innerHTML = imgs.alt;
+
+           
+            clearInterval(intervaloAutoplay);
+        }
+
+        function cerrarLightbox() {
+            document.getElementById("miLightbox").style.display = "none";
+         
+            iniciarAutoplay();
+        }
+    </script>
+
+</body>
+</html>
